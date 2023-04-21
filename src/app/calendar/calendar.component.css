@@ -1,0 +1,30 @@
+nav {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  text-align: center;
+}
+
+nav > .month {
+  font-size: 24px;
+}
+
+.days {
+  display: grid;
+  margin-top: 10px;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.days section {
+  border: 1px solid #ccc;
+  font-size: 24px;
+  padding: 20px;
+}
+
+.day {
+  cursor: pointer;
+}
+
+.differentMonth {
+  color: #aaa
+}

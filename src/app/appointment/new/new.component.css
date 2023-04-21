@@ -1,0 +1,27 @@
+.InputContainer {
+  margin-bottom: 12px;
+}
+
+.InputContainer > label {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.InputContainer > input {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  border: 1px solid #8c8c8c;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.InputContainer > input:focus {
+  outline: none;
+  border: 2px solid #000;
+}
+
+.InputContainer > p {
+  color: #ff1a1a;
+}

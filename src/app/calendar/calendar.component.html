@@ -1,0 +1,28 @@
+<header>
+  <nav>
+    <button (click)="changeMonth(-1)">Prev</button>
+
+    <h1 class="month">
+      {{ actualDate | date : "MMM yyyy" }}
+    </h1>
+
+    <button (click)="changeMonth(+1)">Next</button>
+  </nav>
+</header>
+
+<div class="days">
+  <ng-container *ngFor="let day of days; let i = index">
+    <section *ngIf="i < 7">
+      <strong>{{ day | date : "EEEEE" }}</strong>
+    </section>
+  </ng-container>
+
+  <section
+    *ngFor="let day of days; let i = index"
+    class="day"
+    [class.breakLine]="i % 7 === 0"
+    [class.differentMonth]="actualDate.getMonth() !== day.getMonth()"
+  >
+    {{ day | date : "dd" }}
+  </section>
+</div>

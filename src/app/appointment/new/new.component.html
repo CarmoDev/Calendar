@@ -1,0 +1,19 @@
+<app-modal modalId="appointment">
+  <p class="text-2xl font-bold" heading>Create Appointment</p>
+
+  <form [formGroup]="appointmentForm">
+    <!-- Date -->
+    <div class="mb-3 InputContainer">
+      <label class="inline-block mb-2">Date</label>
+      <input type="date" formControlName="date">
+    </div>
+
+    <!-- Name -->
+    <div class="mb-3 InputContainer">
+      <label class="inline-block mb-2">Name of the appointment</label>
+      <input formControlName="name" type="text">
+    </div>
+
+    <button mat-raised-button (click)="onSubmit()">Save appointment</button>
+  </form>
+</app-modal>
