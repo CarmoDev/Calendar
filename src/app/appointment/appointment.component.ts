@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
-import { ModalService } from '../services/modal.service';
+import { Component } from "@angular/core";
+import { ModalService } from "../services/modal.service";
 
 @Component({
-  selector: 'app-appointment',
-  templateUrl: './appointment.component.html',
-  styleUrls: ['./appointment.component.css'],
+    selector: "app-appointment",
+    templateUrl: "./appointment.component.html",
+    styleUrls: ["./appointment.component.css"],
 })
 export class AppointmentComponent {
-  constructor(public modal: ModalService) {}
+    constructor(public modal: ModalService) {}
 
-  openModal($event: Event) {
-    $event.preventDefault();
+    openModal($event: Event) {
+        $event.preventDefault();
 
-    this.modal.handleToggleModal('appointment');
-  }
+        this.modal.handleToggleModal("appointment");
+    }
 }

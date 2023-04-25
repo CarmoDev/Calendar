@@ -1,0 +1,53 @@
+<main>
+  <a href="/"> Back </a>
+
+  <h2 class="w-full">{{ date }}</h2>
+
+  <p>YOU CAN ORDER THE MOST IMPORTANT JUST BY DRAGGING</p>
+
+  <ng-container
+    *ngFor="
+      let appointmentByHour of groupedByHours;
+      let appointmentByHourIndex = index
+    "
+  >
+    <section class="group-container" cdkDropListGroup>
+      <header class="group-header">{{ appointmentByHour[0].Hour }}Hrs</header>
+
+      <div
+        class="appointmentsByHour"
+        cdkDropList
+        [cdkDropListData]="appointmentByHour"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div
+          class="flex"
+          *ngFor="
+            let appointment of appointmentByHour;
+            let appointmentIndex = index
+          "
+          [cdkDragData]="appointment"
+          cdkDrag
+        >
+          <div class="appointment flex" *ngIf="appointment.Date === date">
+            <h2>
+              {{ appointment.Name }}
+            </h2>
+
+            <button
+              (click)="
+                removeFromGroup(
+                  appointmentByHour,
+                  appointmentByHourIndex,
+                  appointmentIndex
+                )
+              "
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </ng-container>
+</main>

@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 export class AppointmentService {
   private myArray: any[] = [];
 
-  constructor() {
-    const data = localStorage.getItem('appointments');
-    if (data) {
-      this.myArray = JSON.parse(data);
-    }
-  }
+  // constructor() {
+  //   const data = localStorage.getItem('appointments');
+  //   if (data) {
+  //     this.myArray = JSON.parse(data);
+  //   }
+  // }
 
   getArray(): any[] {
     return this.myArray;
@@ -19,6 +19,5 @@ export class AppointmentService {
 
   setArray(arr: any[]): void {
     this.myArray = arr;
-    localStorage.setItem('appointments', JSON.stringify(arr));
   }
 }

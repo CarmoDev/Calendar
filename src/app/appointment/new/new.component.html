@@ -2,16 +2,22 @@
   <p class="text-2xl font-bold" heading>Create Appointment</p>
 
   <form [formGroup]="appointmentForm">
-    <!-- Date -->
-    <div class="mb-3 InputContainer">
-      <label class="inline-block mb-2">Date</label>
-      <input type="date" formControlName="date">
-    </div>
-
     <!-- Name -->
     <div class="mb-3 InputContainer">
       <label class="inline-block mb-2">Name of the appointment</label>
-      <input formControlName="name" type="text">
+      <input formControlName="name" type="text" />
+    </div>
+
+    <!-- Date -->
+    <div class="mb-3 InputContainer">
+      <label class="inline-block mb-2">Date</label>
+      <input type="date" formControlName="date" />
+    </div>
+
+    <!-- Hour -->
+    <div class="mb-3 InputContainer">
+      <label class="inline-block mb-2">Hour</label>
+      <input formControlName="hour" type="time" />
     </div>
 
     <button mat-raised-button (click)="onSubmit()">Save appointment</button>

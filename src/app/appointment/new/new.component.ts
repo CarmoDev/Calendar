@@ -25,21 +25,45 @@ export class NewComponent implements OnInit, OnDestroy {
     this.modal.unregister('appointment');
   }
 
-  date = new FormControl(new Date());
+  date = new FormControl('');
   name = new FormControl('');
+  hour = new FormControl('');
 
   appointmentForm = new FormGroup({
     date: this.date,
     name: this.name,
+    hour: this.hour,
   });
 
+  formatDate(selectedDate: string | null): string {
+    const parts = selectedDate!.split('-');
+    const month = parts[1];
+    const day = parts[2];
+
+    return `${day}.${month}`;
+  }
+
+  formatHour(selectedHour: string | null): string {
+    const hourAndMinute = selectedHour!.split(':');
+
+    const hour = hourAndMinute[0];
+
+    return hour;
+  }
+
   onSubmit() {
-    const dateValue: Date | null = this.appointmentForm.get('date')!.value;
+    const dateValue: string | null = this.formatDate(
+      this.appointmentForm.get('date')!.value
+    );
     const nameValue: string | null = this.appointmentForm.get('name')!.value;
+    const hourValue: string | null = this.formatHour(
+      this.appointmentForm.get('hour')!.value
+    );
 
     this.Allappointments.push({
       Date: dateValue,
       Name: nameValue,
+      Hour: hourValue,
     });
 
     this.appointmentService.setArray(this.Allappointments);
